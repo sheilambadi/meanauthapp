@@ -11,10 +11,22 @@ const passport = require('passport');
 //initialize app variable with express
 const app = express();
 
+//other routes should be in a differnt file this one reserved for index routes
+const users = require('./routes/users');
+
 //variable for port that will be used, can be any no, not necesarily 3000
 const port = 3000;
 
-//create route to home page
+//allow access by any domain by using cors middleware, authentication will also be provided
+app.use(cors());
+
+//body-parser middleware to parse incoming request bodies
+app.use(bodyParser.json());
+
+//user routes
+app.use('/users', users);
+
+//create route to home page (index route)
 app.get('/', (req, res) => {
     res.send('Invalid endpoint');
 })
