@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 //register route
-router.get('/register', (req, res, next) => {
+router.post('/register', (req, res, next) => {
     res.send('Register');
 });
 
@@ -16,11 +16,6 @@ router.post('/authenticate', (req, res, next) => {
 //profile route
 router.get('/profile', (req, res, next) => {
     res.send('Profile');
-});
-
-//validate route
-router.get('/validate', (req, res, next) => {
-    res.send('Validate');
 });
 
 module.exports = router;
