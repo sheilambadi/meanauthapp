@@ -40,6 +40,10 @@ app.use(cors());
 //body-parser middleware to parse incoming request bodies
 app.use(bodyParser.json());
 
+//passport middleware to handle session (authentication and token)
+app.use(passport.initialize());
+app.use(passport.session());
+
 //set static folders for client side
 app.use(express.static(path.join(__dirname, 'public')));
 
