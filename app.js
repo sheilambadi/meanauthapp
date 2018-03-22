@@ -37,6 +37,9 @@ const port = 3000;
 //allow access by any domain by using cors middleware, authentication will also be provided
 app.use(cors());
 
+//set static folders for client side
+app.use(express.static(path.join(__dirname, 'public')));
+
 //body-parser middleware to parse incoming request bodies
 app.use(bodyParser.json());
 
@@ -44,8 +47,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-//set static folders for client side
-app.use(express.static(path.join(__dirname, 'public')));
+require('./config/passport')(passport);
 
 //user routes
 app.use('/users', users);
