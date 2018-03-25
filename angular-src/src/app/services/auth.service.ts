@@ -29,6 +29,20 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  getProfile(){
+    //set content types
+    let headers = new Headers();
+    
+    this.loadToken();
+    
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+
+    //observable
+    return this.http.get('http://localhost:3000/users/profile', {headers: headers})
+      .map(res => res.json());
+  }
+
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
@@ -41,6 +55,11 @@ export class AuthService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+  }
+
+  loadToken(){
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
   }
 
 }
