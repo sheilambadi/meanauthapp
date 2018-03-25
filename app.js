@@ -55,7 +55,12 @@ app.use('/users', users);
 //create route to home page (index route)
 app.get('/', (req, res) => {
     res.send('Invalid endpoint');
-})
+});
+
+//redirect all routes to home page
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+  });
 
 //listen on specified port and add callback using arrow function
 app.listen(port, () => {
