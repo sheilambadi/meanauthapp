@@ -59,7 +59,8 @@ app.get('/', (req, res) => {
 
 //redirect all routes to home page
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    //res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.redirect('/');
   });
 
 //listen on specified port and add callback using arrow function
