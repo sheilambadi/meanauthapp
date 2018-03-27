@@ -16,7 +16,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     //observable
-    return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
+    return this.http.post('users/register', user, {headers: headers})
       .map(res => res.json());
   }
 
@@ -26,7 +26,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     //observable
-    return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+    return this.http.post('users/authenticate', user, {headers: headers})
       .map(res => res.json());
   }
 
@@ -40,7 +40,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     //observable
-    return this.http.get('http://localhost:3000/users/profile', {headers: headers})
+    return this.http.get('users/profile', {headers: headers})
       .map(res => res.json());
   }
 

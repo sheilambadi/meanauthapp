@@ -32,7 +32,7 @@ const app = express();
 const users = require('./routes/users');
 
 //variable for port that will be used, can be any no, not necesarily 3000
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 //allow access by any domain by using cors middleware, authentication will also be provided
 app.use(cors());
